@@ -1,3 +1,4 @@
+#include "PhoneSettings.h"//Modify the .h file with the number to call and message and obstacle distance
 //Mode switch which decide between the Phone mode and eye stick
 const int modeSwitch = 10;
 //Call buttons
@@ -16,7 +17,7 @@ const int motorPin = A0; //Note because the number of digital pins are short usi
 //Pin the maxbotix sensor is connected to measure the distance from the obstacle in the front
 const int maxbotix = 2;
 // Phone_Modify this value to the distance in inches from the object based on the persons height 
-const int obstacleAt = 10; // in inches considering phone will be pointed downwards
+const int obstacleAt = OBSTACLE_DISTANCE; // in inches considering phone will be pointed downwards
 
 
 long duration, inches;
@@ -42,21 +43,27 @@ if(digitalRead(modeSwitch)== LOW)
   Serial.println("You are in Phone Mode");
 if(digitalRead(call1) == LOW){
   Serial.println("Calling number 1");
+  Serial.print(CALL_NUMBER1);
 }
 else if(digitalRead(call2) == LOW){
   Serial.println("Calling number 2");
+  Serial.print(CALL_NUMBER2);
 }
 else if(digitalRead(call3) == LOW){
   Serial.println("Calling number 3");
+  Serial.print(CALL_NUMBER3);
 }
 else if(digitalRead(call4) == LOW){
   Serial.println("Calling number 4");
+  Serial.print(CALL_NUMBER4);
 }
 else if(digitalRead(message1) == LOW){
   Serial.println("Sending message 1");
+  Serial.print(MESSAGE_NUMBER1);
 }
 else if(digitalRead(message2) == LOW){
   Serial.println("Sending message 2");
+  Serial.print(MESSAGE_NUMBER2);
 }
 else{
   Serial.println("Do Nothing");
